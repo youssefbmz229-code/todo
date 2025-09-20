@@ -1,0 +1,17 @@
+<h1>Liste des tâches à faire :</h1>
+<ul>
+    @for (todo of todos; track todo.id + todo.task) {
+        @if(todo.state != "done"){
+            <li><span>{{todo.task}}</span><button (click)="supp(todo.id)">supprimer</button>
+                @if(todo.modifier != null){
+                <input [(ngModel)]= "todo.modifier" placeholder="modification">
+                <button (click)="modif(todo)">modifier</button>
+               }
+            </li>
+        }
+    }
+</ul>
+
+<input [(ngModel)]= "nouvelletache">
+<button (click)="ajout()">ajouter</button>
+
